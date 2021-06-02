@@ -63,3 +63,39 @@ class Solution:
         # return "".join(word1) == "".join(word2)
 
 # ===============
+
+class Solution:
+    def commonChars(self, words: List[str]) -> List[str]:
+        
+        newList = []
+
+        for letter in words[0]:
+
+            for i in range(1, len(words)):
+
+                if letter in words[i]:
+                    words[i] = words[i].replace(letter, "", 1)   
+                    if i == len(words) - 1:
+                        newList.append(letter)
+                else:
+                    break
+
+        return newList
+                
+        
+        
+'''
+
+U:
+
+["honey", "nowhere", "hennessee"]
+output = ["h", "n", "e"]
+
+["school", "hooks", "cartoons"]
+output = ["s", "o", "o"]
+
+P:
+
+create var newWord = words[0];  iterate through newWord; if letter is in all words, add to newList; if occurs more than once, check if it occurs that many times in each other word
+
+'''
